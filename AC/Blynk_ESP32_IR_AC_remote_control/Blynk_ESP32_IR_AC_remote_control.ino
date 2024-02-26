@@ -16,9 +16,7 @@ DHT dht(DHTPIN, DHTTYPE);
 // Replace with your network credentials
 const char* ssid = "LONG_MAX";
 const char* password = "00000000";
-
 // Replace with your unique Blynk Auth Token
-
 char auth[] = "TY_KsPR1f2rggjYTKoRCIxaLWSE1vh7N";
 
 const uint16_t kIrLedPin = 4;  // The GPIO pin number where IR emitter is connected
@@ -114,7 +112,6 @@ void sendSensorData() {
   Serial.print("humidity: ");
   Serial.println(humidity);
 }
-
 
 void setup() {
   // Debug console

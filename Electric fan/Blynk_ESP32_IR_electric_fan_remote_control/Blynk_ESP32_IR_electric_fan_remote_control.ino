@@ -1,6 +1,6 @@
 // *** MAIN SETTINGS ***
 #define BLYNK_TEMPLATE_ID "TMPL6Py1k1g9B"
-#define BLYNK_TEMPLATE_NAME "LED ESP32"
+#define BLYNK_TEMPLATE_NAME "LED ESP32"  // copy from Blynk's template
 #define BLYNK_AUTH_TOKEN "v65kZep5AZyblGds4balWknDIH1dv8wk"
 //
 //   https://blynk.cloud/dashboard/templates
@@ -13,21 +13,19 @@
 
 #define DHT_PIN 2
 #define DHT_TYPE DHT11
-
 DHT dht(DHT_PIN, DHT_TYPE);
+
+#define IR_LED_PIN 4  // Change this to the GPIO pin you've connected the IR LED to
 
 // Replace with your network credentials
 const char* ssid = "LONG_MAX";
 const char* password = "00000000";
-
 // Replace with your unique Blynk Auth Token
-
 char auth[] = "v65kZep5AZyblGds4balWknDIH1dv8wk";
 
 BlynkTimer timer;
 
 
-#define IR_LED_PIN 4  // Change this to the GPIO pin you've connected the IR LED to
 //			| PWOER |
 #define FAN_SWITCH_RAW_DATA_LEN 68
 uint16_t FAN_SWITCH_rawData[FAN_SWITCH_RAW_DATA_LEN] = {
@@ -86,6 +84,7 @@ IRsend irsend(IR_LED_PIN);
 // V0 is a datastream used to transfer and store LED switch state.
 // Evey time you use the LED switch in the app, this function
 // will listen and update the state on device
+
 // Power
 BLYNK_WRITE(V0) {
   // Local variable `value` stores the incoming LED switch state (1 or 0)
@@ -106,6 +105,7 @@ BLYNK_WRITE(V0) {
     delay(100);
   }
 }
+
 // Oscillation
 BLYNK_WRITE(V4) {
   // Local variable `value` stores the incoming LED switch state (1 or 0)
@@ -126,6 +126,7 @@ BLYNK_WRITE(V4) {
     delay(100);
   }
 }
+
 // Fan speed
 BLYNK_WRITE(V3) {
   // Local variable `value` stores the incoming LED switch state (1 or 0)
@@ -160,6 +161,7 @@ void setup() {
   // Debug console
   Serial.begin(115200);
   delay(100);
+
   // Connect to Wi-Fi
   int try_times = 0;
   WiFi.begin(ssid, password);
@@ -177,8 +179,10 @@ void setup() {
   // Initialize AC object
   irsend.begin();
   Serial.println("irSender is ready");
+
   dht.begin();
   Serial.println("DHT11 ready!!");
+  
   timer.setInterval(2000L, sendSensorData); // Set the interval to 2 seconds (2000 milliseconds)  
 }
 
