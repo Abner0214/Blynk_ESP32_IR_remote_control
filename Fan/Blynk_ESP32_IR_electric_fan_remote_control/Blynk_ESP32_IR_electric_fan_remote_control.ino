@@ -25,7 +25,7 @@ char auth[] = "v65kZep5AZyblGds4balWknDIH1dv8wk";
 
 BlynkTimer timer;
 
-
+// The IR raw data of my fan
 //			| PWOER |
 #define FAN_SWITCH_RAW_DATA_LEN 68
 uint16_t FAN_SWITCH_rawData[FAN_SWITCH_RAW_DATA_LEN] = {
