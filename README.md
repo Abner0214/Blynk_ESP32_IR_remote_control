@@ -10,25 +10,31 @@ Implement an IoT infrared remote controller that can remotely control air condit
           
             [GitHub - crankyoldgit/IRremoteESP8266: Infrared remote library for ESP8266/ESP32: send and receive infrared signals with multiple protocols. Based on: https://github.com/shirriff/Arduino-IRremote/](https://github.com/crankyoldgit/IRremoteESP8266/tree/master)
             
-    2. Physical Components:
-        - *Components Used*:
+    2. Physical Components Used:
+       
         1. **2N2222 * 1**
            
-           ![2N2222](readme_images/2N2222.webp)
+           <img src="readme_images/2N2222.webp" width="300" height="300" alt="2N2222">
+
         2. **IR LED * 1**
-            
-           ![IR LED](readme_images/IR_LED.jpg)
+           
+           <img src="readme_images/IR_LED.jpg" width="300" height="250" alt="IR_LED">
+           
         3. **Resistor * 1**
-            
-           ![Resistor](readme_images/Resistor.webp)
+           
+           <img src="readme_images/Resistor.webp" width="300" height="200" alt="Resistor">
+           
         4. **DHT11 * 1**
+           
+           <img src="readme_images/DHT11.webp" width="300" height="300" alt="DHT11">
             
-           ![DHT11](readme_images/DHT11.webp)
-        - *Circuit Diagram*:
+    3. Circuit Diagram:
           
-          ![Circuit Diagram AC](readme_images/Circuit_Diagram_AC.png)
+          <img src="readme_images/Circuit_Diagram_AC.png" alt="Circuit_Diagram_AC">
         
-    3. Blynk:
+    4. Blynk:
+          
+          <img src="readme_images/Blynk_AC.png" alt="Blynk_AC">
         
 2. **Electric Fan:**
     1. First, use an **Arduino UNO** with a **vs1838B** module to receive the raw infrared signal, record the raw signal, then use an **ESP32** to convert various remote infrared signals with a **2N2222** transistor and send them out via an **IR LED**. Use a **DHT11** module to record the current environmental temperature and humidity. The IoT platform used is **Blynk**.
@@ -40,34 +46,42 @@ Implement an IoT infrared remote controller that can remotely control air condit
             
             [GitHub - crankyoldgit/IRremoteESP8266: Infrared remote library for ESP8266/ESP32: send and receive infrared signals with multiple protocols. Based on: https://github.com/shirriff/Arduino-IRremote/](https://github.com/crankyoldgit/IRremoteESP8266/tree/master)
             
-    2. Physical Components:
-        - *Components Used*:
-        1. **vs1838B * 1**
-  
-           ![vs1838B](readme_images/vs1838B.jpg)
-        2. **2N2222 * 1**
-            
-           ![2N2222](readme_images/2N2222.webp)
-        3. **IR LED * 1**
+    2. Physical Components Used:
 
-           ![IR LED](readme_images/IR_LED.jpg)
+        1. **vs1838B * 1**
+           
+           <img src="readme_images/vs1838B.jpg" width="300" height="300" alt="vs1838B">
+  
+        2. **2N2222 * 1**
+           
+           <img src="readme_images/2N2222.webp" width="300" height="300" alt="2N2222">
+           
+        3. **IR LED * 1**
+           
+           <img src="readme_images/IR_LED.jpg" width="300" height="250" alt="IR_LED">
+           
         5. **Resistor * 1**
            
-           ![Resistor](readme_images/Resistor.webp)
+           <img src="readme_images/Resistor.webp" width="300" height="200" alt="Resistor">
+           
         6. **DHT11 * 1**
-            
-           ![DHT11](readme_images/DHT11.webp)
-        - *Circuit Diagram*:
+           
+           <img src="readme_images/DHT11.webp" width="300" height="300" alt="DHT11">
+           
+    3. Circuit Diagram:
           
-          ![Circuit Diagram AC](readme_images/Circuit_Diagram_fan.png)
-    3. Blynk:
-        
-    4. Example of Raw Infrared Signal:
+          <img src="readme_images/Circuit_Diagram_fan.png" alt="Circuit_Diagram_fan">
+          
+    4. Blynk:
+          
+          <img src="readme_images/Blynk_fan.png" alt="Blynk_fan">
+
+    5. Example of Raw Infrared Signal:
     - Electric Fan Power Switch:
     
-    ```arduino
+    ```c
     #define FAN_SWITCH_RAW_DATA_LEN 68
-    uint16_t FAN_SWITCH_rawData[RAW_DATA_LEN] = {
+    uint16_t FAN_SWITCH_rawData[FAN_SWITCH_RAW_DATA_LEN] = {
     	9030, 4466, 594, 558, 574, 558, 578, 558,
     	574, 558, 578, 1662, 578, 1662, 578, 558,
     	574, 558, 574, 1666, 578, 1662, 578, 1666,
@@ -90,6 +104,6 @@ Implement an IoT infrared remote controller that can remotely control air condit
 
 Due to Blynk's data stream limitations, the project was divided into two separate boards, and not all controller functions could be covered. However, all essential functions were implemented, as shown in detail in the videos.
 
-- **ESP32 Fan IR remote control**
+- **ESP32 Fan IR remote control demo**
 
-https://youtu.be/68HZ8h9fc4A
+> https://youtu.be/68HZ8h9fc4A
